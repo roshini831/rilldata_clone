@@ -1,0 +1,67 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Monthly Trends Metrics
+model: monthly_trends
+timeseries: month
+
+dimensions:
+  - name: month
+    display_name: Month
+    column: month
+
+measures:
+  - name: total_file_changes_measure
+    display_name: Total File Changes
+    expression: SUM(file_changes)
+    description: Total number of file changes across all months.
+    format_preset: humanize
+  - name: total_commits_measure
+    display_name: Total Commits
+    expression: SUM(commits)
+    description: Total number of commits across all months.
+    format_preset: humanize
+  - name: average_commits_per_month_measure
+    display_name: Average Commits per Month
+    expression: AVG(commits)
+    description: Average number of commits per month.
+    format_preset: humanize
+  - name: total_active_contributors_measure
+    display_name: Total Active Contributors
+    expression: SUM(active_contributors)
+    description: Total number of active contributors across all months.
+    format_preset: humanize
+  - name: average_active_contributors_per_month_measure
+    display_name: Average Active Contributors per Month
+    expression: AVG(active_contributors)
+    description: Average number of active contributors per month.
+    format_preset: humanize
+  - name: total_additions_measure
+    display_name: Total Additions
+    expression: SUM(additions)
+    description: Total number of code additions across all months.
+    format_preset: humanize
+  - name: total_deletions_measure
+    display_name: Total Deletions
+    expression: SUM(deletions)
+    description: Total number of code deletions across all months.
+    format_preset: humanize
+  - name: total_net_growth_measure
+    display_name: Total Net Growth
+    expression: SUM(net_growth)
+    description: Total net growth (additions minus deletions) across all months.
+    format_preset: humanize
+  - name: average_net_growth_per_month_measure
+    display_name: Average Net Growth per Month
+    expression: AVG(net_growth)
+    description: Average net growth per month.
+    format_preset: humanize
+  - name: months_tracked_measure
+    display_name: Number of Months Tracked
+    expression: COUNT(month)
+    description: Total number of months included in the trends data.
+    format_preset: humanize

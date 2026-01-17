@@ -1,0 +1,72 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Hotspot Files Metrics
+model: hotspot_files
+timeseries: first_modified
+
+dimensions:
+  - name: file_path
+    display_name: File Path
+    column: file_path
+  - name: filename
+    display_name: Filename
+    column: filename
+  - name: first_directory
+    display_name: First Directory
+    column: first_directory
+  - name: file_extension
+    display_name: File Extension
+    column: file_extension
+  - name: first_modified
+    display_name: First Modified
+    column: first_modified
+  - name: last_modified
+    display_name: Last Modified
+    column: last_modified
+
+measures:
+  - name: total_files_measure_measure
+    display_name: Total Files
+    expression: COUNT(*)
+    description: Total number of files in the hotspot_files table.
+    format_preset: humanize
+  - name: average_modification_count_measure_measure
+    display_name: Average Modification Count
+    expression: AVG(modification_count)
+    description: Average number of modifications per file.
+    format_preset: humanize
+  - name: max_modification_count_measure_measure
+    display_name: Max Modification Count
+    expression: MAX(modification_count)
+    description: Maximum number of modifications for a single file.
+    format_preset: humanize
+  - name: average_unique_authors_measure_measure
+    display_name: Average Unique Authors
+    expression: AVG(unique_authors)
+    description: Average number of unique authors per file.
+    format_preset: humanize
+  - name: total_additions
+    display_name: Total Additions
+    expression: SUM(total_additions)
+    description: Total number of additions across all files.
+    format_preset: humanize
+  - name: total_deletions
+    display_name: Total Deletions
+    expression: SUM(total_deletions)
+    description: Total number of deletions across all files.
+    format_preset: humanize
+  - name: total_churn
+    display_name: Total Churn
+    expression: SUM(total_churn)
+    description: Total code churn (additions plus deletions) across all files.
+    format_preset: humanize
+  - name: average_unique_commits_measure_measure
+    display_name: Average Unique Commits
+    expression: AVG(unique_commits)
+    description: Average number of unique commits per file.
+    format_preset: humanize

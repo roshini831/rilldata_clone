@@ -1,0 +1,69 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Language Analysis Metrics
+model: language_analysis
+
+dimensions:
+  - name: language
+    display_name: Language
+    column: language
+  - name: file_extension
+    display_name: File Extension
+    column: file_extension
+
+measures:
+  - name: total_file_changes_measure
+    display_name: Total File Changes
+    expression: SUM(file_changes)
+    description: Total number of file changes across all records.
+    format_preset: humanize
+  - name: average_file_changes_measure
+    display_name: Average File Changes
+    expression: AVG(file_changes)
+    description: Average number of file changes per record.
+    format_preset: humanize
+  - name: total_lines_added_measure
+    display_name: Total Lines Added
+    expression: SUM(lines_added)
+    description: Total number of lines added across all records.
+    format_preset: humanize
+  - name: average_lines_added_measure
+    display_name: Average Lines Added
+    expression: AVG(lines_added)
+    description: Average number of lines added per record.
+    format_preset: humanize
+  - name: total_lines_deleted_measure
+    display_name: Total Lines Deleted
+    expression: SUM(lines_deleted)
+    description: Total number of lines deleted across all records.
+    format_preset: humanize
+  - name: average_lines_deleted_measure
+    display_name: Average Lines Deleted
+    expression: AVG(lines_deleted)
+    description: Average number of lines deleted per record.
+    format_preset: humanize
+  - name: total_contributors_measure
+    display_name: Total Contributors
+    expression: SUM(contributors)
+    description: Total number of contributors across all records.
+    format_preset: humanize
+  - name: average_contributors_measure
+    display_name: Average Contributors
+    expression: AVG(contributors)
+    description: Average number of contributors per record.
+    format_preset: humanize
+  - name: record_count_measure
+    display_name: Record Count
+    expression: COUNT(*)
+    description: Total number of records in the language_analysis table.
+    format_preset: humanize
+  - name: max_lines_added_measure
+    display_name: Maximum Lines Added
+    expression: MAX(lines_added)
+    description: Maximum number of lines added in a single record.
+    format_preset: humanize

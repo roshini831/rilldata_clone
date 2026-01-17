@@ -1,0 +1,68 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Top Contributors Metrics
+model: top_contributors
+timeseries: first_commit
+
+dimensions:
+  - name: username
+    display_name: Username
+    column: username
+  - name: first_commit
+    display_name: First Commit
+    column: first_commit
+  - name: last_commit
+    display_name: Last Commit
+    column: last_commit
+
+measures:
+  - name: total_contributors_measure_measure
+    display_name: Total Contributors
+    expression: COUNT(username)
+    description: Total number of contributors in the top_contributors table.
+    format_preset: humanize
+  - name: sum_total_changes_measure_measure
+    display_name: Total Changes
+    expression: SUM(total_changes)
+    description: Sum of all changes made by top contributors.
+    format_preset: humanize
+  - name: average_total_changes_measure_measure
+    display_name: Average Changes per Contributor
+    expression: AVG(total_changes)
+    description: Average number of changes made per contributor.
+    format_preset: humanize
+  - name: sum_unique_commits_measure_measure
+    display_name: Total Unique Commits
+    expression: SUM(unique_commits)
+    description: Total number of unique commits by all contributors.
+    format_preset: humanize
+  - name: average_unique_commits_measure_measure
+    display_name: Average Unique Commits per Contributor
+    expression: AVG(unique_commits)
+    description: Average number of unique commits per contributor.
+    format_preset: humanize
+  - name: sum_lines_added_measure_measure
+    display_name: Total Lines Added
+    expression: SUM(lines_added)
+    description: Total number of lines added by all contributors.
+    format_preset: humanize
+  - name: sum_lines_deleted_measure_measure
+    display_name: Total Lines Deleted
+    expression: SUM(lines_deleted)
+    description: Total number of lines deleted by all contributors.
+    format_preset: humanize
+  - name: sum_net_lines_measure_measure
+    display_name: Total Net Lines
+    expression: SUM(net_lines)
+    description: Total net lines (lines added minus lines deleted) by all contributors.
+    format_preset: humanize
+  - name: average_add_percentage_measure_measure
+    display_name: Average Add Percentage
+    expression: AVG(add_percentage)
+    description: Average percentage of lines added by all contributors.
+    format_preset: humanize

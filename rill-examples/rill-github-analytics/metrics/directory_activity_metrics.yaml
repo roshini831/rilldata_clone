@@ -1,0 +1,66 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: Directory Activity Metrics
+model: directory_activity
+
+dimensions:
+  - name: directory
+    display_name: Directory
+    column: directory
+
+measures:
+  - name: total_changes_measure
+    display_name: Total Changes
+    expression: SUM(changes)
+    description: Total number of changes across all directories.
+    format_preset: humanize
+  - name: total_additions_measure
+    display_name: Total Additions
+    expression: SUM(additions)
+    description: Total number of additions across all directories.
+    format_preset: humanize
+  - name: total_deletions_measure
+    display_name: Total Deletions
+    expression: SUM(deletions)
+    description: Total number of deletions across all directories.
+    format_preset: humanize
+  - name: total_net_changes_measure
+    display_name: Total Net Changes
+    expression: SUM(net_changes)
+    description: Total net changes (additions minus deletions) across all directories.
+    format_preset: humanize
+  - name: average_changes_per_directory_measure
+    display_name: Average Changes per Directory
+    expression: AVG(changes)
+    description: Average number of changes per directory.
+    format_preset: humanize
+  - name: average_contributors_per_directory_measure
+    display_name: Average Contributors per Directory
+    expression: AVG(contributors)
+    description: Average number of contributors per directory.
+    format_preset: humanize
+  - name: max_unique_commits_measure
+    display_name: Maximum Unique Commits
+    expression: MAX(unique_commits)
+    description: Maximum number of unique commits in a single directory.
+    format_preset: humanize
+  - name: min_pct_of_project_measure
+    display_name: Minimum Percent of Project
+    expression: MIN(pct_of_project)
+    description: Minimum percentage of the project attributed to a single directory.
+    format_preset: humanize
+  - name: directory_count_measure
+    display_name: Directory Count
+    expression: COUNT(directory)
+    description: Total number of directory records.
+    format_preset: humanize
+  - name: average_pct_of_project_measure
+    display_name: Average Percent of Project
+    expression: AVG(pct_of_project)
+    description: Average percentage of the project attributed to directories.
+    format_preset: humanize
